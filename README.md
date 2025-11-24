@@ -3,97 +3,134 @@
 Project Title:
 Event Management Project
 
-Overview of the Project
+# Overview
+A desktop application built with Python and Tkinter for managing campus events, volunteers, and participants. The system provides a user-friendly interface to create events, register volunteers, and manage participant registrations.
 
-The Campus Event Manager is a Python-based desktop application built using Tkinter. It allows users to manage campus events and register volunteers for those events. The system stores event and volunteer information in lightweight .dat files, making it simple and easy to use without requiring heavy databases.
+# Features
 
-The project follows a modular OOP-based structure with separate classes for handling events, volunteers, file operations, and UI components.
+# Event Management
+- Create new events with details like name, category, date, time, location, and maximum capacity
+- View all created events in a organized table
+- Automatic event ID generation
+- Input validation for required fields
 
-Features
-Event Management
+# Volunteer Registration
+- Register volunteers for specific events
+- Prevent duplicate registrations using email validation
+- Track registration timestamps
+- View all registered volunteers
 
-Add new campus events
+# Participant Management
+- Register participants for events
+- Capacity management to prevent overbooking
+- Duplicate email checking
+- Phone number collection
+- Real-time registration tracking
 
-Store event details (name, type, date, time, venue, max capacity)
+# File Structure
 
-Auto-generate unique event IDs
+The application uses three text files for data storage:
 
-View all events in a table format
+- `events.txt` - Stores event information
+- `vols.txt` - Stores volunteer registrations  
+- `parts.txt` - Stores participant registrations
 
-Volunteer Management
+# Installation & Requirements
 
-Register volunteers for specific events
+# Prerequisites
+- Python 3.x
+- Tkinter (usually comes with Python)
+- No additional packages required
 
-Prevent duplicate registrations
+# Running the Application
+1. Save the code as `event_manager.py`
+2. Run the script:
+   ```bash
+   python event_manager.py
+   ```
 
-Auto-generate volunteer IDs
+# How to Use
 
-View all volunteer details in a table
+# Creating Events
+1. Navigate to the "Events" tab
+2. Fill in event details:
+   - Event Name (required)
+   - Category
+   - Date
+   - Start Time
+   - End Time
+   - Location
+   - Maximum Participants
+3. Click "Create Event"
 
-Other Features
+# Registering Volunteers
+1. Go to the "Volunteers" tab
+2. Enter:
+   - Event ID (from existing events)
+   - Full Name
+   - Email Address
+3. Click "Register"
 
-Simple GUI using Tkinter
+# Registering Participants
+1. Open the "Participants" tab
+2. Provide:
+   - Event ID
+   - Full Name
+   - Email Address
+   - Phone Number
+3. Click "Register Participant"
 
-Separate tabs for Events and Volunteers
+# Data Format
 
-Data persistence using local .dat files
+# Events File Format
+```
+event_id|event_name|category|date|start_time|end_time|location|max_participants
+```
 
-Clean modular structure using classes
+# Volunteers File Format
+```
+volunteer_id|event_id|name|email|timestamp
+```
 
-Technologies / Tools Used
+# Participants File Format
+```
+participant_id|event_id|name|email|phone|timestamp
+```
 
-Python 3.x
+# Error Handling
 
-Tkinter (GUI framework)
+- Prevents duplicate email registrations per event
+- Validates event existence before registration
+- Enforces maximum participant limits
+- Requires all mandatory fields
+- Provides user-friendly error messages
 
-OS module (file handling)
+# Technical Details
 
-Random module (unique ID generator)
+- **GUI Framework**: Tkinter with ttk widgets
+- **Data Storage**: Text files with pipe-separated values
+- **ID Generation**: Random 6-character alphanumeric strings
+- **Timestamp Format**: ISO format for accurate time tracking
 
-Datetime module (timestamping)
+# Limitations
 
-Steps to Install & Run the Project
+- Data persists in text files (no database)
+- No user authentication system
+- Basic error handling
+- No data export features
 
-Download or clone the repository
+# Future Enhancements
 
-git clone https://github.com/your-repo/event-manager.git
+- Database integration
+- User authentication
+- Email notifications
+- Reporting and analytics
+- Data export capabilities
+- Event cancellation features
 
-Navigate into the project folder
+# Support
 
-cd event-manager
+For issues or questions, check the input validation messages and ensure all required fields are properly filled. The system provides descriptive error messages to guide users through the registration process.
 
-Run the application
-
-python main.py
-
-Note: Make sure Python 3.x is installed on your system.
-
-Instructions for Testing
-
-Open the app using python main.py.
-
-Go to Events tab:
-
-Add an event by filling all fields.
-
-Check if the event appears in the events list.
-
-Go to Volunteers tab:
-
-Register a volunteer using a valid Event ID.
-
-Check whether the volunteer appears in the list.
-
-Try registering the same email for the same event → It should show an error.
-
-Close and reopen the application → All previous data should still be visible.
-
-Screenshots (Optional)
-
-You can add screenshots like:
-
-Event creation window
-
-Volunteers registration window
-
-Final dashboard view
+---
+*Note: This is a standalone desktop application designed for single-computer use with local file storage.*
